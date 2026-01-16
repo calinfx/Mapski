@@ -3,36 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mapski v1.6 | The Three Ambitions</title>
+    <title>Mapski v1.7</title>
     <style>
         body { background-color: #1a1a1a; color: #d4a373; font-family: sans-serif; margin: 0; height: 100vh; display: flex; flex-direction: column; }
-        #header { padding: 10px; font-size: 0.9em; color: #8b4513; border-bottom: 2px solid #556b2f; }
-        #map-canvas { flex-grow: 1; margin: 15px; position: relative; background-color: #262626; border-radius: 20px; border: 3px solid #3d2b1f; overflow: hidden; }
+        #header { padding: 12px; font-size: 0.8em; color: #8b4513; border-bottom: 2px solid #556b2f; }
+        #map-container { flex-grow: 1; margin: 10px; background-color: #262626; border-radius: 15px; position: relative; }
+        svg { width: 100%; height: 100%; }
+        .label { font-size: 12px; font-weight: bold; pointer-events: none; text-anchor: middle; }
         
-        .zone { position: absolute; display: flex; align-items: center; justify-content: center; text-align: center; font-weight: bold; font-size: 12px; clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); transition: all 0.3s; }
-        
-        .blue-lab { width: 100px; height: 110px; bottom: 10%; left: 10%; background: rgba(0, 206, 209, 0.4); border: 2px solid #00ced1; color: #fff; }
-        .red-fire { width: 90px; height: 100px; top: 20%; left: 40%; background: rgba(139, 69, 19, 0.4); border: 2px solid #ff4500; color: #ff8c00; }
-        .purple-court { width: 120px; height: 130px; top: 15%; right: 10%; background: rgba(128, 0, 128, 0.4); border: 2px solid #da70d6; color: #dda0dd; }
-        
+        /* Buttons */
         .controls { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 15px; background: #111; }
-        button { border: none; padding: 15px; border-radius: 12px; font-weight: bold; color: white; font-size: 11px; }
+        button { border: none; padding: 18px; border-radius: 12px; font-weight: bold; color: white; cursor: pointer; }
         .btn-blue { background: #008b8b; }
         .btn-red { background: #8b4513; }
         .btn-purple { background: #4b0082; }
     </style>
 </head>
 <body>
-    <div id="header">MAPSKI v1.6 | v.2026.01.16</div>
-    <div id="map-canvas">
-        <div class="zone blue-lab">BLUE<br>LAB</div>
-        <div class="zone red-fire">RED<br>FIRE</div>
-        <div class="zone purple-court">PURPLE<br>COURT</div>
+    <div id="header">MAPSKI v1.7 | THE THREE AMBITIONS</div>
+    <div id="map-container">
+        <svg viewBox="0 0 400 600">
+            <polygon points="100,450 143,475 143,525 100,550 57,525 57,475" 
+                     fill="rgba(0, 206, 209, 0.3)" stroke="#00ced1" stroke-width="3" />
+            <text x="100" y="505" class="label" fill="#00ced1">BLUE LAB</text>
+
+            <polygon points="200,100 243,125 243,175 200,200 157,175 157,125" 
+                     fill="rgba(139, 69, 19, 0.3)" stroke="#ff4500" stroke-width="3" />
+            <text x="200" y="155" class="label" fill="#ff8c00">RED FIRE</text>
+
+            <polygon points="300,120 343,145 343,195 300,220 257,195 257,145" 
+                     fill="rgba(128, 0, 128, 0.3)" stroke="#da70d6" stroke-width="3" />
+            <text x="300" y="175" class="label" fill="#dda0dd">PURPLE COURT</text>
+        </svg>
     </div>
     <div class="controls">
-        <button class="btn-blue" onclick="alert('Power/Tech Focus')">LAB MODE</button>
-        <button class="btn-red" onclick="alert('Heavy Labor Focus')">FIRE MODE</button>
-        <button class="btn-purple" onclick="alert('Creative/Art Focus')">COURT MODE</button>
+        <button class="btn-blue">LAB</button>
+        <button class="btn-red">FIRE</button>
+        <button class="btn-purple">COURT</button>
     </div>
 </body>
 </html>
